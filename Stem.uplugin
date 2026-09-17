@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0.0",
+	"FriendlyName": "Stem",
+	"Description": "Hierarchy guides for Unreal Engine's World Outliner, with selected and hovered path highlighting and adjustable line brightness and thickness.",
+	"Category": "Editor",
+	"CreatedBy": "Mippithedork",
+	"CanContainContent": false,
+	"IsBetaVersion": false,
+	"Modules": [
+		{
+			"Name": "Stem",
+			"Type": "Editor",
+			"LoadingPhase": "PostEngineInit"
+		}
+	],
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"IsExperimentalVersion": false,
+	"Installed": false
+}
