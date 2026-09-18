@@ -1,3 +1,5 @@
+// Copyright Epic Games, Inc. All Rights Reserved.
+
 #include "Modules/ModuleManager.h"
 #include "StemSettings.h"
 #include "StemGuideArrow.h"
