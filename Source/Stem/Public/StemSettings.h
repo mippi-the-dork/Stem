@@ -6,6 +6,8 @@
 #include "Engine/DeveloperSettings.h"
 #include "StemSettings.generated.h"
 
+struct FPropertyChangedEvent;
+
 UCLASS(Config=Stem, DefaultConfig, meta=(DisplayName="Stem"))
 class STEM_API UStemSettings : public UDeveloperSettings
 {
@@ -13,6 +15,9 @@ class STEM_API UStemSettings : public UDeveloperSettings
 public:
     UPROPERTY(Config, EditAnywhere, Category="Outliner", meta=(DisplayName="Show Hierarchy Guides", ToolTip="Draw connector lines beside the World Outliner's expansion arrows to clarify folder and actor relationships."))
     bool bShowHierarchyGuides=true;
+
+    UPROPERTY(Config, EditAnywhere, Category="Appearance", meta=(DisplayName="Row Height", ToolTip="World Outliner row height in pixels.", ClampMin="20.0", ClampMax="64.0", UIMin="20.0", UIMax="40.0"))
+    float RowHeight=26.5f;
 
     UPROPERTY(Config, EditAnywhere, Category="Appearance", meta=(ClampMin="0.0", ClampMax="1.0", UIMin="0.0", UIMax="1.0", ToolTip="Brightness of the neutral gray guides, from invisible to white."))
     float GuideBrightness=0.15f;
@@ -31,6 +36,10 @@ public:
 
     UPROPERTY(Config, EditAnywhere, Category="Highlighting", meta=(EditCondition="bHighlightHoveredPath", ClampMin="0.0", ClampMax="1.0", UIMin="0.0", UIMax="1.0"))
     float HoveredPathBrightness=0.40f;
+
+#if WITH_EDITOR
+    virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
+#endif
 
     virtual FName GetSectionName() const override { return TEXT("Stem"); }
     virtual FName GetCategoryName() const override { return TEXT("Plugins"); }

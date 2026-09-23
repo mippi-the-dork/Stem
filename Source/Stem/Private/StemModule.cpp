@@ -3,8 +3,10 @@
 #include "Modules/ModuleManager.h"
 #include "StemSettings.h"
 #include "StemGuideArrow.h"
+#include "StemOutlinerRefresh.h"
 #include "ISceneOutlinerTreeItem.h"
 #include "Widgets/SBoxPanel.h"
+#include "Widgets/Layout/SBox.h"
 #include "Widgets/Views/STreeView.h"
 #include "ISceneOutliner.h"
 #include "ISceneOutlinerColumn.h"
@@ -12,11 +14,43 @@
 #include "SceneOutlinerPublicTypes.h"
 #include "Layout/Children.h"
 #include "Widgets/Views/SExpanderArrow.h"
+#include "Widgets/Views/SHeaderRow.h"
 #include "Widgets/Views/STableRow.h"
 
 namespace Stem
 {
 using FRow=STableRow<FSceneOutlinerTreeItemPtr>;
+
+// A visually hidden auxiliary column that contributes only vertical desired size.
+// Keeping this separate from Item Label preserves the native label widget type for
+// Chroma and leaves Unreal's icons, expander arrows, selection, and row behavior intact.
+class FRowHeightColumn final : public ISceneOutlinerColumn
+{
+public:
+    static FName GetID()
+    {
+        static const FName ColumnID(TEXT("StemRowHeightColumn"));
+        return ColumnID;
+    }
+
+    virtual FName GetColumnID() override { return GetID(); }
+
+    virtual SHeaderRow::FColumn::FArguments ConstructHeaderRowColumn() override
+    {
+        return SHeaderRow::Column(GetID())
+            .DefaultLabel(FText::GetEmpty())
+            .DefaultTooltip(NSLOCTEXT("Stem", "StemRowHeightColumnTooltip", "Stem World Outliner row spacing"))
+            .ManualWidth(1.0f)
+            .Visibility(EVisibility::Hidden);
+    }
+
+    virtual const TSharedRef<SWidget> ConstructRowWidget(FSceneOutlinerTreeItemRef,const FRow&) override
+    {
+        const float NativeRowHeight=static_cast<float>(FSceneOutlinerDefaultTreeItemMetrics::RowHeight());
+        const float DesiredRowHeight=FMath::Max(NativeRowHeight,GetDefault<UStemSettings>()->RowHeight);
+        return SNew(SBox).MinDesiredHeight(DesiredRowHeight);
+    }
+};
 
 // Return the original label widget unchanged. In particular, Chroma must still
 // see the native label type, regardless of which column decorator runs first.
@@ -207,7 +241,31 @@ struct FRegistry
 {
     bool bActive=true;
     TArray<TWeakPtr<FLabelColumn>> Columns;
+    TArray<TWeakPtr<ISceneOutliner>> Outliners;
+
+    void RegisterOutliner(ISceneOutliner& View)
+    {
+        Outliners.RemoveAll([](const TWeakPtr<ISceneOutliner>& Entry) { return !Entry.IsValid(); });
+        Outliners.AddUnique(StaticCastSharedRef<ISceneOutliner>(View.AsShared()));
+    }
+
+    void FullRefreshOutliners()
+    {
+        Outliners.RemoveAll([](const TWeakPtr<ISceneOutliner>& Entry) { return !Entry.IsValid(); });
+        for(const auto& Weak:Outliners)
+            if(const auto View=Weak.Pin()) View->FullRefresh();
+    }
 };
+
+static TWeakPtr<FRegistry> GRegistry;
+
+void RefreshOutlinersForRowHeight()
+{
+    if(const TSharedPtr<FRegistry> Registry=GRegistry.Pin())
+    {
+        Registry->FullRefreshOutliners();
+    }
+}
 }
 
 class FStemModule final : public IModuleInterface
@@ -219,13 +277,30 @@ public:
     {
         if(IsRunningCommandlet()) return;
         Registry=MakeShared<Stem::FRegistry>();
+        Stem::GRegistry=Registry;
         const auto State=Registry.ToSharedRef();
         auto& Module=FModuleManager::LoadModuleChecked<FSceneOutlinerModule>(TEXT("SceneOutliner"));
         ColumnHandle=Module.OnCreateActorBrowserColumns().AddLambda([State](FSceneOutlinerInitializationOptions& Options,UWorld*) {
+            // Stem owns general Outliner readability. This hidden column contributes
+            // row height only; it does not expose UI or alter the label column.
+            Options.ColumnMap.Add(
+                Stem::FRowHeightColumn::GetID(),
+                FSceneOutlinerColumnInfo(
+                    ESceneOutlinerColumnVisibility::Visible,
+                    251,
+                    FCreateSceneOutlinerColumn::CreateLambda([State](ISceneOutliner& View) -> TSharedRef<ISceneOutlinerColumn> {
+                        State->RegisterOutliner(View);
+                        return MakeShared<Stem::FRowHeightColumn>();
+                    }),
+                    false,
+                    TOptional<float>(),
+                    NSLOCTEXT("Stem", "StemRowHeightColumnLabel", "Stem Row Height")));
+
             auto* Label=Options.ColumnMap.Find(FSceneOutlinerBuiltInColumnTypes::Label());
             if(!Label || !State->bActive) return;
             const FCreateSceneOutlinerColumn Previous=Label->Factory;
             Label->Factory=FCreateSceneOutlinerColumn::CreateLambda([Previous,State](ISceneOutliner& View) -> TSharedRef<ISceneOutlinerColumn> {
+                State->RegisterOutliner(View);
                 const TSharedPtr<ISceneOutlinerColumn> Original=Previous.IsBound() ?
                     TSharedPtr<ISceneOutlinerColumn>(Previous.Execute(View)) :
                     FModuleManager::LoadModuleChecked<FSceneOutlinerModule>(TEXT("SceneOutliner")).FactoryColumn(FSceneOutlinerBuiltInColumnTypes::Label(),View);
@@ -237,6 +312,7 @@ public:
                 return Column;
             });
         });
+
     }
     virtual void ShutdownModule() override
     {
@@ -246,8 +322,9 @@ public:
         {
             Registry->bActive=false;
             for(const auto& Weak:Registry->Columns) if(auto Column=Weak.Pin()) Column->Stop();
-            Registry->Columns.Reset(); Registry.Reset();
+            Registry->Columns.Reset(); Registry->Outliners.Reset(); Registry.Reset();
         }
+        Stem::GRegistry.Reset();
     }
     virtual bool SupportsDynamicReloading() override { return false; }
 };

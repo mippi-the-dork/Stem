@@ -1,10 +1,10 @@
 # Stem
 
-Stem adds visual hierarchy guides to Unreal Engine's World Outliner, making nested folders and attached actors easier to follow. Selected and hovered items highlight their paths to visible ancestors, while adjustable brightness and thickness let you tune the guides to your workspace.
+Stem improves readability in Unreal Engine's World Outliner with visual hierarchy guides, selected and hovered path highlighting, and configurable row height. Adjustable guide brightness and thickness let you tune the hierarchy display to your workspace.
 
 **Compatibility:** Tested in Unreal Engine 5.8.2 on Windows (64-bit).
 
-Stem works in the standard World Outliner without adding another column. It requires no engine modifications and has no dependency on Motion Design, Focus, Chroma, Origin, or Surface.
+Stem works in the standard World Outliner without adding a visible column. It requires no engine modifications and has no dependency on Motion Design, Focus, Chroma, Origin, or Surface.
 
 ## Installation
 
@@ -33,6 +33,7 @@ Open **Project Settings > Plugins > Stem**. Guides and both highlighting options
 
 | Setting | Default | Description |
 | --- | --- | --- |
+| Row Height | 26.5 | World Outliner row height in pixels. Values below Unreal's native row height never shrink the rows below the native minimum. |
 | Show Hierarchy Guides | On | Shows or hides all Stem guides. |
 | Guide Brightness | 0.15 | Brightness of regular guides, from 0 to 1. |
 | Guide Thickness | 2 | Stroke width, adjustable from 1 to 4 Slate units. |
@@ -41,13 +42,13 @@ Open **Project Settings > Plugins > Stem**. Guides and both highlighting options
 | Highlight Hovered Path | On | Highlights the hovered row's ancestor path. |
 | Hovered Path Brightness | 0.40 | Brightness of hover highlights. |
 
-Changes apply during use. Settings are stored through the project's `Config/DefaultStem.ini`. Explicitly saved values take precedence over defaults. Thickness scales with the editor UI, and highlights never dim the regular guides.
+Changes apply during use. Changing Row Height triggers Stem settings' editor change handler and performs a full refresh of open standard World Outliners so spacing updates immediately. Settings are stored through the project's `Config/DefaultStem.ini`. Explicitly saved values take precedence over defaults. Thickness scales with the editor UI, and highlights never dim the regular guides.
 
 All guides remain neutral gray. Stem does not use Chroma colors for its lines.
 
 ## Compatibility and scope
 
-Stem preserves the existing label content and normal Outliner controls, including actor icons, renaming, selection, and drag-and-drop. It can operate alongside the suite's Outliner plugins without adding columns or changing their order.
+Stem preserves the existing label content and normal Outliner controls, including actor icons, renaming, selection, and drag-and-drop. Row height is contributed by a hidden layout-only column so the native Item Label widget remains untouched. It can operate alongside the suite's Outliner plugins without adding visible columns or changing their visible column order.
 
 - Guides follow the displayed hierarchy. Collapsed or filtered-out portions are not drawn.
 - Each Outliner uses its own selection and hover state.
@@ -59,7 +60,7 @@ Stem changes editor presentation only. It does not modify actors, folders, attac
 
 ## Validation
 
-The editor build, hierarchy guides, appearance controls, and path highlighting have been tested. The brief icon-position jump during expansion and the guide overlap around expansion triangles were corrected and verified in the editor.
+Stem has been manually tested in Unreal Engine 5.8.2 for hierarchy guides, appearance controls, row height, selected and hovered path highlighting, expansion/collapse behavior, selection, and standard World Outliner interaction.
 
 Clean-project installation, plugin packaging, and packaged-game validation remain unverified. Compatibility with every third-party Outliner customization is not guaranteed.
 
