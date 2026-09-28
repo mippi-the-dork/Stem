@@ -12,43 +12,7 @@ Make dense Actor and Folder hierarchies easier to trace without changing the str
 ![Version](https://img.shields.io/badge/Version-1.0.2-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-> [!IMPORTANT]
-> **ATTENTION - README AUTHOR**
->
-> Capture the primary hero image for Stem here.
->
-> **Recommended visual:** Side-by-side screenshot
->
-> Use the exact same World Outliner hierarchy for both images.
->
-> **Before:** Standard Unreal Engine hierarchy presentation.
->
-> **After:** Stem enabled with hierarchy guides visible.
->
-> Use a hierarchy with enough depth to make the difference obvious. Include:
->
-> - Multiple root items
-> - At least two Folders
-> - Several nested Folder levels
-> - An attached Actor hierarchy
-> - Several expanded branches
->
-> Do not select or hover anything for this comparison. The goal is to show what the base hierarchy guides add on their own.
->
-> Crop fairly tightly around the World Outliner.
->
-> **Suggested files:**
->
-> - `Doc/Images/Stem-Before.png`
-> - `Doc/Images/Stem-After.png`
->
-> Once captured, replace this callout with:
->
-> ```markdown
-> | Standard World Outliner | World Outliner with Stem |
-> |---|---|
-> | ![Standard Unreal Engine World Outliner](Doc/Images/Stem-Before.png) | ![World Outliner with Stem hierarchy guides](Doc/Images/Stem-After.png) |
-> ```
+![Standard Unreal Engine World Outliner](Doc/Images/Stem-Hero.png)
 
 ---
 
