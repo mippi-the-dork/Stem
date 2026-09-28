@@ -108,38 +108,7 @@ It does not modify Actors, Folders, attachments, level hierarchy, or runtime gam
 
 ---
 
-> [!IMPORTANT]
-> **ATTENTION - README AUTHOR**
->
-> This should be the main demonstration of Stem.
->
-> **Recommended visual:** GIF
->
-> Use a reasonably deep expanded hierarchy and show:
->
-> 1. No Actor selected.
-> 2. Select a deeply nested Actor.
-> 3. Show its path brighten back toward its visible ancestors.
-> 4. Ctrl-select another Actor from a different branch.
-> 5. Show both paths highlighted.
-> 6. Hover another row.
-> 7. Move the cursor away and show the hover highlight disappear.
->
-> Keep the World Outliner stationary during the recording.
->
-> The hierarchy should be complicated enough that the usefulness of the path highlighting is immediately obvious.
->
-> Around 8 to 12 seconds is ideal.
->
-> **Suggested file:**
->
-> `Doc/Images/Stem-Path-Highlighting.gif`
->
-> Once captured, replace this callout with:
->
-> ```markdown
-> ![Selected and hovered hierarchy paths with Stem](Doc/Images/Stem-Path-Highlighting.gif)
-> ```
+![Selected and hovered hierarchy paths with Stem](Doc/Images/Stem-Path-Highlighting.gif)
 
 ---
 
@@ -303,33 +272,9 @@ Changes apply immediately to open standard World Outliners.
 
 Stem will not shrink rows below Unreal Engine's native minimum row height.
 
-> [!IMPORTANT]
-> **ATTENTION - README AUTHOR**
->
-> Capture a row-height comparison here.
->
-> **Recommended visual:** Side-by-side screenshot
->
-> Use the same hierarchy twice.
->
-> **Left:** Default Stem row height of `26.5`.
->
-> **Right:** A noticeably larger value, such as `36`.
->
-> Do not exaggerate it to the point where the second image looks impractical. The goal is to show that spacing can be tuned for readability.
->
-> **Suggested files:**
->
-> - `Doc/Images/Stem-Row-Height-Default.png`
-> - `Doc/Images/Stem-Row-Height-Large.png`
->
-> Once captured, replace this callout with:
->
-> ```markdown
-> | Default Row Height | Increased Row Height |
-> |---|---|
-> | ![Stem default World Outliner row height](Doc/Images/Stem-Row-Height-Default.png) | ![Stem increased World Outliner row height](Doc/Images/Stem-Row-Height-Large.png) |
-> ```
+| Default Row Height | Increased Row Height |
+|---|---|
+| ![Stem default World Outliner row height](Doc/Images/Stem-Row-Height-Default.png) | ![Stem increased World Outliner row height](Doc/Images/Stem-Row-Height-Large.png) |
 
 ---
 
@@ -432,37 +377,7 @@ Because selected and hovered brightness are configured independently, selection 
 
 ---
 
-> [!IMPORTANT]
-> **ATTENTION - README AUTHOR**
->
-> Capture the Stem Project Settings here.
->
-> **Recommended visual:** Screenshot
->
-> Show:
->
-> **Project Settings > Plugins > Stem**
->
-> Make sure all settings are visible:
->
-> - Show Hierarchy Guides
-> - Row Height
-> - Guide Brightness
-> - Guide Thickness
-> - Highlight Selected Paths
-> - Selected Path Brightness
-> - Highlight Hovered Path
-> - Hovered Path Brightness
->
-> **Suggested file:**
->
-> `Doc/Images/Stem-Settings.png`
->
-> Once captured, replace this callout with:
->
-> ```markdown
-> ![Stem Project Settings](Doc/Images/Stem-Settings.png)
-> ```
+![Stem Project Settings](Doc/Images/Stem-Settings.png)
 
 ---
 
