@@ -4,7 +4,7 @@
 	"VersionName": "1.0.2",
 	"FriendlyName": "Stem",
 	"Description": "World Outliner readability tools with hierarchy guides, path highlighting, adjustable guide appearance, and configurable row height.",
-	"Category": "Editor",
+	"Category": "World Outliner",
 	"CreatedBy": "Mippithedork",
 	"CanContainContent": false,
 	"IsBetaVersion": false,
