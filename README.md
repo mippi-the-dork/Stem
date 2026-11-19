@@ -1,921 +1,137 @@
 # Stem
 
-**Clearer hierarchy guides and adjustable spacing for Unreal Engine's World Outliner.**
+### Make Unreal Engine's World Outliner easier to read.
 
-Stem improves World Outliner readability with visual hierarchy guides, selected and hovered path highlighting, and configurable row height.
+**Clear hierarchy guides. Instantly recognizable parent paths. More room to breathe.**
 
-Make dense Actor and Folder hierarchies easier to trace without changing the structure of your level.
+As projects grow, the World Outliner fills with nested folders, attached Actors, and similarly named objects. Finding which parent a row belongs to—or tracing a selection back through several levels—can become a chore.
+
+**Stem makes those relationships visible at a glance.** It adds subtle connector lines, highlights the paths of selected and hovered rows, and gives you control over row spacing and guide appearance. Everything happens inside Unreal's existing World Outliner, without replacing your workflow or changing your level.
 
 ![Unreal Engine](https://img.shields.io/badge/Unreal%20Engine-5.8.x-black?logo=unrealengine)
-![Platform](https://img.shields.io/badge/Platform-Windows%2064--bit-blue)
-![Type](https://img.shields.io/badge/Plugin-Editor%20Only-green)
+![Platform](https://img.shields.io/badge/Platform-Win64-blue)
+![Plugin Type](https://img.shields.io/badge/Plugin-Editor%20Only-green)
 ![Version](https://img.shields.io/badge/Version-1.0.2-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
-![Standard Unreal Engine World Outliner](Doc/Images/Stem-Hero.png)
+![Stem hierarchy guides in Unreal Engine's World Outliner](Doc/Images/Stem-Hero.png)
 
 ---
 
-## What is Stem?
+## 📖 Full Documentation
 
-Large World Outliner hierarchies can become difficult to read once Actors, Folders, and attached hierarchies begin nesting several levels deep.
+**Want to install Stem, customize the guides, understand its behavior, or troubleshoot something?**
 
-At a glance, it can be difficult to tell:
+### **[Explore the Stem Documentation Website](https://mippi-the-dork.github.io/Stem/)**
 
-- Which parent a row belongs to
-- How far a hierarchy extends
-- Which branch a selected Actor belongs to
-- Where several selected Actors share the same hierarchy
-- Which path connects a deeply nested Actor back to its ancestors
+The dedicated documentation site includes step-by-step **Design guides**, detailed **Technical references**, illustrated workflows, settings explanations, limitations, and troubleshooting.
 
-Stem adds visual hierarchy guides directly beside Unreal Engine's existing expansion controls.
-
-The guides clarify how rows are connected without replacing the normal World Outliner workflow.
-
-Select an Actor and Stem can brighten its path back through the hierarchy.
-
-Hover over another row and Stem can temporarily highlight that path without changing your selection.
-
-You can also adjust World Outliner row height, guide brightness, guide thickness, and highlight intensity to fit your workspace.
+| Start here | Learn more |
+| --- | --- |
+| [Installation & First Use](https://mippi-the-dork.github.io/Stem/?page=01-getting-started%2FREADME.md) | Get Stem running and see the guides in action. |
+| [Hierarchy Guides](https://mippi-the-dork.github.io/Stem/?page=02-hierarchy-guides%2FREADME.md) | Understand connector lines, nesting, and expansion. |
+| [Path Highlighting](https://mippi-the-dork.github.io/Stem/?page=03-path-highlighting%2FREADME.md) | Follow selections, hover over branches, and inspect shared paths. |
+| [Appearance & Settings](https://mippi-the-dork.github.io/Stem/?page=04-appearance-and-settings%2FREADME.md) | Customize row height, guide thickness, and highlight brightness. |
+| [Troubleshooting](https://mippi-the-dork.github.io/Stem/?page=05-integration-and-support%2Ftroubleshooting%2FDESIGN.md) | Find answers when the Outliner doesn't look as expected. |
+| [Technical Architecture](https://mippi-the-dork.github.io/Stem/?page=05-integration-and-support%2Farchitecture%2FTECHNICAL.md) | Explore the native Slate/SceneOutliner implementation. |
 
 ---
 
-# Features
+## Why Stem?
 
-### Hierarchy Guides
+### See the structure, not just the indentation
 
-Adds visual connector lines between parent and child rows in the World Outliner.
+In a busy Outliner, whitespace alone isn't always enough to distinguish one branch from another. Stem draws **vertical and horizontal hierarchy guides** beside Unreal's native expansion arrows, helping you follow the parent-child relationships of folders and attached Actors.
 
-### Folder and Actor Hierarchies
+The guides adapt to the hierarchy currently displayed, and expanding or collapsing rows still works exactly as it does in Unreal.
 
-Guides work across displayed Folder structures and attached Actor hierarchies.
+**[Learn about hierarchy guides →](https://mippi-the-dork.github.io/Stem/?page=02-hierarchy-guides%2Fcore%2FDESIGN.md)**
 
-### Selected Path Highlighting
+### Find your selected Actor's place in the tree
 
-Select a row to brighten the hierarchy path connecting it to its visible ancestors.
+Select a deeply nested Actor or Folder and Stem brightens the visible path leading back through its ancestors. Select multiple Actors and it shows their combined paths—without making shared segments unnaturally bright.
 
-### Multiple Selection Highlighting
+Hover over another row to preview that branch without losing your existing selection. When selected and hovered paths overlap, the stronger configured highlight wins.
 
-Select several rows and Stem displays their combined hierarchy paths.
+![Stem selected and hovered paths](Doc/Images/Stem-Path-Highlighting.gif)
 
-Shared path segments retain a consistent brightness instead of becoming brighter each time another selected Actor shares them.
+*Selected and hovered paths make it easier to trace several branches through the same hierarchy.*
 
-### Hovered Path Highlighting
+**[Explore path highlighting →](https://mippi-the-dork.github.io/Stem/?page=03-path-highlighting%2FREADME.md)**
 
-Hover over a row to temporarily highlight its hierarchy path without changing the current selection.
+### Make dense Outliners more comfortable
 
-### Combined Selection and Hover
+Not every hierarchy needs the same visual density. Stem lets you adjust **row height, guide brightness, guide thickness, selected-path brightness, and hovered-path brightness** in **Project Settings → Plugins → Stem**.
 
-Selection and hover highlighting can be active at the same time.
+Use subtle guides for everyday editing, or make paths more pronounced when you're navigating deeply nested scenes. Row Height can add spacing, but never reduces rows beneath Unreal's native minimum.
 
-Where the two paths overlap, Stem uses the brighter configured value.
+| Default row spacing | Increased row spacing |
+| :---: | :---: |
+| ![Stem default row height](Doc/Images/Stem-Row-Height-Default.png) | ![Stem increased row height](Doc/Images/Stem-Row-Height-Large.png) |
 
-### Adjustable Row Height
+*More vertical room improves readability while keeping the same native Outliner controls.*
 
-Increase World Outliner row spacing to make dense hierarchies easier to scan.
+**[Customize Stem's appearance →](https://mippi-the-dork.github.io/Stem/?page=04-appearance-and-settings%2FREADME.md)**
 
-Stem never reduces rows below Unreal Engine's native minimum height.
+### Fits into the editor you already use
 
-### Adjustable Guide Brightness
+Stem doesn't ask you to move to a separate hierarchy window. It keeps native labels, icons, expansion arrows, selection, sorting, and drag-and-drop behavior. There is **no extra visible Outliner column** to manage.
 
-Control how subtle or prominent the normal hierarchy guides appear.
-
-### Adjustable Guide Thickness
-
-Control the width of hierarchy guide lines.
-
-### Adjustable Highlight Brightness
-
-Configure selected and hovered hierarchy paths independently.
-
-### Native Expansion Controls
-
-Stem preserves Unreal Engine's normal expansion arrows and expansion behavior.
-
-### Clean Expansion Arrow Rendering
-
-Guide lines leave space around expansion triangles so the lines do not visually cut through the controls.
-
-### Per-Outliner Interaction
-
-Each World Outliner maintains its own hover and selection presentation.
-
-### Editor Only
-
-Stem changes editor presentation only.
-
-It does not modify Actors, Folders, attachments, level hierarchy, or runtime gameplay.
+Stem is an **Editor-only presentation plugin**. Its hierarchy guides and highlighting don't alter Actor attachments, Folder membership, saved levels, or runtime gameplay.
 
 ---
 
-![Selected and hovered hierarchy paths with Stem](Doc/Images/Stem-Path-Highlighting.gif)
+## Getting Started
+
+Stem v1.0.2 targets **Unreal Engine 5.8.x on Windows 64-bit**. The repository records manual testing in Unreal Engine **5.8.2**.
+
+You can install an available compatible release through [GitHub Releases](https://github.com/mippi-the-dork/Stem/releases), use a supported Fab distribution when available, or build the [source](https://github.com/mippi-the-dork/Stem) for your editor.
+
+Once enabled, open a standard World Outliner and expand a nested hierarchy. The guides appear automatically when enabled in Stem's Project Settings.
+
+**[Read the complete installation guide](https://mippi-the-dork.github.io/Stem/?page=01-getting-started%2Finstall%2FDESIGN.md)**
 
 ---
 
-# Using Stem
+## What Stem Does Not Do
 
-Stem integrates directly into the standard World Outliner.
+Stem is deliberately focused on **World Outliner readability**, not managing or modifying the hierarchy itself.
 
-There is no separate Stem window and no additional visible Outliner column.
+- It does **not** create, move, rename, attach, or reparent Actors or Folders.
+- It does **not** modify level packages or introduce runtime gameplay systems.
+- It does **not** replace the World Outliner or add a visible control column.
+- It does **not** draw branches that are collapsed or filtered out of the currently displayed Outliner.
+- It does **not** guarantee decoration of specialized third-party Outliners, custom expansion widgets, or pinned ancestor duplicates.
+- It does **not** guarantee support outside the documented Unreal Engine and platform versions.
 
-Once enabled, hierarchy guides appear automatically beside compatible expanded hierarchy rows.
+If you enable Stem after an Outliner tab is already open, you may need to reopen that tab or restart Unreal Editor to see every guide.
 
-Use the World Outliner normally.
-
----
-
-## Hierarchy Guides
-
-Stem draws neutral hierarchy lines that visually connect parent and child rows.
-
-For example:
-
-```text
-Environment
-├── Building
-│   ├── Exterior
-│   │   ├── Wall_A
-│   │   └── Wall_B
-│   └── Interior
-│       ├── Furniture
-│       └── Lighting
-└── Landscape
-```
-
-The guides make it easier to visually follow each branch through a dense hierarchy.
-
-Collapsed branches are represented normally.
-
-Stem only draws the hierarchy currently displayed by the World Outliner.
+**[Read compatibility and limitations](https://mippi-the-dork.github.io/Stem/?page=05-integration-and-support%2Fcompatibility%2FDESIGN.md)**
 
 ---
 
-# Selected Path Highlighting
+## Reporting Issues and Requesting Features
 
-Select an Actor or Folder and Stem brightens the visible hierarchy path connecting that row to its ancestors.
+Found a bug or have an idea that would make complex hierarchies easier to navigate? Use [GitHub Issues](https://github.com/mippi-the-dork/Stem/issues).
 
-For example:
+For a bug report, please include the **Stem and Unreal Engine versions**, installation method, what you expected versus what happened, steps to reproduce, and an Outliner screenshot or short recording when useful. Include relevant Output Log entries for technical problems.
 
-```text
-Environment
-└── Building
-    └── Interior
-        └── Furniture
-            └── Chair
-```
+For a **feature request**, start with the problem you're trying to solve. That helps keep Stem focused on practical readability improvements instead of adding controls for their own sake.
 
-Selecting `Chair` highlights the connector path running through:
+**[Open an issue or feature request](https://github.com/mippi-the-dork/Stem/issues/new)** · **[Troubleshooting guide](https://mippi-the-dork.github.io/Stem/?page=05-integration-and-support%2Ftroubleshooting%2FDESIGN.md)**
 
-```text
-Chair
-Furniture
-Interior
-Building
-Environment
-```
+## Contributions
 
-This makes deeply nested selections much easier to locate within a large Outliner.
+Contributions and pull requests are welcome. For substantial changes, [open an issue](https://github.com/mippi-the-dork/Stem/issues) first to discuss the intended behavior and how it fits Stem's purpose.
+
+Please preserve native World Outliner interactions, avoid modifying Actors or level data, and keep changes compatible with Stem's Editor-only scope. Relevant documentation should be updated alongside behavior changes.
+
+## License
+
+Stem is distributed under the **MIT License**. See [LICENSE](LICENSE).
 
 ---
 
-# Multiple Selection
+**Stem — a clearer view of the hierarchy you already have.**
 
-Stem also supports multiple selected rows.
-
-For example:
-
-```text
-Environment
-├── Building
-│   ├── Interior
-│   │   └── Chair
-│   └── Exterior
-│       └── Door
-└── Landscape
-```
-
-Selecting both `Chair` and `Door` highlights both hierarchy paths.
-
-The shared portion through `Building` and `Environment` remains at the configured selected-path brightness.
-
-It does not become brighter simply because multiple selected paths overlap.
-
----
-
-# Hover Highlighting
-
-Hover over a World Outliner row and Stem temporarily brightens that row's visible ancestor path.
-
-This does not change the current selection.
-
-Move the cursor away and the hover highlight disappears.
-
-Hover highlighting is useful when scanning a dense hierarchy because you can quickly trace relationships without repeatedly selecting Actors.
-
----
-
-# Selection and Hover Together
-
-Selected and hovered path highlighting operate independently.
-
-You can have one hierarchy highlighted because it is selected while temporarily inspecting another by hovering over it.
-
-If the selected and hovered paths overlap, Stem uses whichever configured brightness is stronger.
-
-The highlights do not stack together and exceed the intended brightness.
-
----
-
-# Expanding and Collapsing Hierarchies
-
-Stem preserves Unreal Engine's normal World Outliner expansion behavior.
-
-You can:
-
-- Expand rows normally
-- Collapse rows normally
-- Use Unreal Engine's existing modifier-based expansion behavior
-- Continue using the normal expansion triangles
-
-Stem leaves a small visual gap around the expansion triangle so hierarchy lines remain readable without drawing through the icon.
-
----
-
-# Row Height
-
-Stem can adjust the vertical spacing of World Outliner rows.
-
-Open:
-
-**Project Settings > Plugins > Stem**
-
-and change:
-
-**Row Height**
-
-The default is:
-
-```text
-26.5
-```
-
-Increasing this value creates additional vertical breathing room between rows.
-
-This can make large hierarchies easier to scan and can provide more separation between:
-
-- Labels
-- Icons
-- Expansion controls
-- Hierarchy guides
-
-Changes apply immediately to open standard World Outliners.
-
-Stem will not shrink rows below Unreal Engine's native minimum row height.
-
-| Default Row Height | Increased Row Height |
-|---|---|
-| ![Stem default World Outliner row height](Doc/Images/Stem-Row-Height-Default.png) | ![Stem increased World Outliner row height](Doc/Images/Stem-Row-Height-Large.png) |
-
----
-
-# Project Settings
-
-Open:
-
-**Project Settings > Plugins > Stem**
-
-to configure Stem.
-
-| Setting | Default | Description |
-|---|---:|---|
-| **Show Hierarchy Guides** | On | Shows or hides Stem's hierarchy guides. |
-| **Row Height** | 26.5 | Controls World Outliner row height in pixels. |
-| **Guide Brightness** | 0.15 | Controls the brightness of normal hierarchy guides. |
-| **Guide Thickness** | 2.0 | Controls the width of hierarchy guide lines. |
-| **Highlight Selected Paths** | On | Enables hierarchy highlighting for selected rows. |
-| **Selected Path Brightness** | 0.65 | Controls the brightness of selected hierarchy paths. |
-| **Highlight Hovered Path** | On | Enables temporary hierarchy highlighting when hovering a row. |
-| **Hovered Path Brightness** | 0.40 | Controls the brightness of hovered hierarchy paths. |
-
----
-
-## Show Hierarchy Guides
-
-Disable this setting to hide Stem's hierarchy connector lines.
-
-This can be useful if you want to temporarily return to Unreal Engine's normal visual presentation without disabling the plugin.
-
----
-
-## Guide Brightness
-
-Controls the opacity of the normal hierarchy guides.
-
-Valid range:
-
-```text
-0.0 to 1.0
-```
-
-Lower values create subtle hierarchy lines.
-
-Higher values make the hierarchy increasingly prominent.
-
-Default:
-
-```text
-0.15
-```
-
----
-
-## Guide Thickness
-
-Controls the stroke width of Stem's hierarchy lines.
-
-Valid range:
-
-```text
-1.0 to 4.0
-```
-
-Default:
-
-```text
-2.0
-```
-
-The rendered thickness scales with Unreal Editor's UI scaling.
-
----
-
-## Selected Path Brightness
-
-Controls the brightness of hierarchy paths belonging to selected rows.
-
-Default:
-
-```text
-0.65
-```
-
-The selected highlight will never make a guide darker than its normal guide brightness.
-
----
-
-## Hovered Path Brightness
-
-Controls the brightness of the hierarchy path beneath the mouse cursor.
-
-Default:
-
-```text
-0.40
-```
-
-Because selected and hovered brightness are configured independently, selection can remain more prominent than temporary hover feedback.
-
----
-
-![Stem Project Settings](Doc/Images/Stem-Settings.png)
-
----
-
-# Example Workflow
-
-Imagine a level with a large environment hierarchy:
-
-```text
-Environment
-├── Exterior
-│   ├── Buildings
-│   │   ├── Building_A
-│   │   ├── Building_B
-│   │   └── Building_C
-│   ├── Streets
-│   └── Props
-├── Interior
-│   ├── Rooms
-│   │   ├── Lobby
-│   │   ├── Office
-│   │   └── Storage
-│   ├── Furniture
-│   └── Lighting
-└── Gameplay
-    ├── Encounters
-    ├── Pickups
-    └── Triggers
-```
-
-Without hierarchy guides, tracing a row several indentation levels back to its parent can require carefully following spacing and expansion controls.
-
-With Stem:
-
-1. The hierarchy guides make the structure visible at a glance.
-2. Select `Office` and its path through `Rooms`, `Interior`, and `Environment` becomes more prominent.
-3. Hover `Building_B` to inspect its hierarchy without changing your current selection.
-4. Increase Row Height if the hierarchy feels visually cramped.
-5. Tune guide and highlight brightness until they fit your preferred workspace.
-
-Stem does not change the hierarchy.
-
-It makes the hierarchy easier to read.
-
----
-
-# Saving Stem Settings
-
-Stem settings are stored in project configuration.
-
-This means your configured:
-
-- Row height
-- Guide visibility
-- Guide brightness
-- Guide thickness
-- Selected path settings
-- Hovered path settings
-
-can persist with the project rather than needing to be configured each time the editor opens.
-
-Stem does not store anything on individual Actors, Folders, or levels.
-
-Changing Stem settings does not dirty your level.
-
----
-
-# Installation
-
-Stem can be installed through **Fab**, from a **precompiled GitHub Release**, or directly from the **GitHub source**.
-
-For most users, the Fab or GitHub Release installation is recommended.
-
----
-
-## Fab / Epic Games Launcher
-
-> **Availability:** Use this installation method once Stem is available through Fab.
-
-1. Add **Stem** to your library on Fab.
-2. Open the **Epic Games Launcher**.
-3. Navigate to your Unreal Engine Library.
-4. Locate Stem in your Fab / Vault library.
-5. Install Stem to the supported Unreal Engine version.
-6. Launch your Unreal Engine project.
-7. Open **Edit > Plugins**.
-8. Search for **Stem**.
-9. Enable the plugin if it is not already enabled.
-10. Restart Unreal Editor if prompted.
-
-Once enabled, Stem's hierarchy guides will appear in the standard World Outliner.
-
----
-
-## GitHub Release
-
-> [!NOTE]
-> Precompiled GitHub packages will appear on the repository's **Releases** page when available.
-
-### 1. Download Stem
-
-Open the repository's **Releases** page:
-
-```text
-https://github.com/mippi-the-dork/Stem/releases
-```
-
-Download the packaged plugin matching your Unreal Engine version and platform.
-
-For example:
-
-```text
-Stem-v1.0.2-UE5.8.2-Win64.zip
-```
-
-Do not use GitHub's automatically generated **Source code** ZIP as a precompiled plugin package.
-
-### 2. Close Unreal Editor
-
-Close the project before installing the plugin.
-
-### 3. Locate Your Project Plugins Folder
-
-Your project should contain a `Plugins` directory beside the `.uproject` file:
-
-```text
-YourProject/
-├── Config/
-├── Content/
-├── Plugins/
-└── YourProject.uproject
-```
-
-If the `Plugins` directory does not exist, create it.
-
-### 4. Extract Stem
-
-Extract the `Stem` folder into:
-
-```text
-YourProject/Plugins/
-```
-
-The final structure should look similar to:
-
-```text
-YourProject/
-├── Plugins/
-│   └── Stem/
-│       ├── Config/
-│       ├── Doc/
-│       ├── Resources/
-│       ├── Source/
-│       └── Stem.uplugin
-└── YourProject.uproject
-```
-
-### 5. Launch the Project
-
-Open your Unreal Engine project.
-
-If necessary, navigate to:
-
-**Edit > Plugins**
-
-Search for:
-
-```text
-Stem
-```
-
-Enable the plugin and restart Unreal Editor if prompted.
-
----
-
-## GitHub Source
-
-Developers who want the source or want to modify Stem can clone the repository directly.
-
-### Requirements
-
-Building Stem from source requires a working Unreal Engine C++ development environment.
-
-For Windows this generally means:
-
-- Unreal Engine 5.8.x
-- Visual Studio with the appropriate C++ workloads
-- A project capable of compiling C++ plugins
-
-### Clone the Repository
-
-Close Unreal Editor and navigate to your project's `Plugins` directory.
-
-```bash
-cd YourProject/Plugins
-git clone https://github.com/mippi-the-dork/Stem.git
-```
-
-Your project should now contain:
-
-```text
-YourProject/Plugins/Stem/
-```
-
-### Generate Project Files
-
-If necessary:
-
-1. Right-click your `.uproject`.
-2. Select **Generate Visual Studio project files**.
-
-Then open the generated solution and build your project's Editor target.
-
-For example:
-
-```text
-YourProjectEditor
-Win64
-Development Editor
-```
-
-Launch the project after compilation completes.
-
----
-
-# Updating Stem
-
-## GitHub Release Installation
-
-When updating a manually installed release:
-
-1. Close Unreal Editor.
-2. Remove the existing `Plugins/Stem` folder.
-3. Extract the new Stem release into the `Plugins` directory.
-4. Reopen the project.
-
-Replacing the complete plugin folder is recommended rather than copying individual files over an older version.
-
-Project-level Stem settings are stored outside the plugin folder and should remain intact.
-
----
-
-## Git Source Installation
-
-If you cloned the repository using Git:
-
-```bash
-cd YourProject/Plugins/Stem
-git pull
-```
-
-Rebuild the project if the source has changed.
-
----
-
-# Compatibility
-
-The current Stem version targets:
-
-| | |
-|---|---|
-| **Stem Version** | 1.0.2 |
-| **Unreal Engine** | 5.8.x |
-| **Tested Version** | 5.8.2 |
-| **Platform** | Windows 64-bit |
-| **Plugin Type** | Editor |
-| **Runtime Dependency** | None |
-| **Runtime Actors** | None |
-| **Runtime Components** | None |
-| **Packaged Game Impact** | None |
-
-Stem's plugin descriptor targets Unreal Engine 5.8.0, with the current version manually tested in Unreal Engine 5.8.2.
-
-Compatibility with additional Unreal Engine versions or platforms should not be assumed unless explicitly listed in a release.
-
----
-
-# How Stem Works
-
-Stem extends the standard World Outliner's existing hierarchy presentation rather than creating a separate hierarchy system.
-
-For each supported World Outliner:
-
-1. Stem preserves Unreal Engine's normal Item Label content.
-2. It retains Unreal's normal expansion behavior.
-3. It adds hierarchy guide rendering around the existing expansion controls.
-4. It reads the displayed parent and child relationships.
-5. It determines the visible path between selected or hovered rows and their ancestors.
-6. It brightens the relevant guide segments according to the configured settings.
-7. A hidden layout element contributes the configured row height without adding a visible column.
-
-Stem samples displayed hierarchy paths at a limited frequency rather than searching every Actor in the world every frame.
-
-The hierarchy itself remains owned entirely by Unreal Engine.
-
----
-
-# What Stem Does Not Do
-
-Stem is an **editor readability tool**.
-
-It does not:
-
-- Modify Actor attachments
-- Move Actors between Folders
-- Create Actors
-- Add Components
-- Rename Actors
-- Rename Folders
-- Change hierarchy structure
-- Modify saved levels
-- Add runtime systems
-- Affect packaged gameplay
-- Replace the World Outliner
-- Add a visible Outliner column
-- Change the meaning of Unreal Engine's hierarchy
-
-Stem improves how the existing hierarchy is displayed.
-
-It does not change what that hierarchy contains.
-
----
-
-# Limitations
-
-### Displayed Hierarchy
-
-Stem draws guides for the hierarchy currently displayed in the World Outliner.
-
-Collapsed or filtered-out hierarchy portions are not drawn until they become visible.
-
-### Custom Outliners
-
-Stem targets the standard World Outliner.
-
-Specialized custom Outliner implementations or custom expansion widgets are outside its intended integration.
-
-### Pinned Ancestors
-
-Pinned ancestor duplicates retain Unreal Engine's native presentation and are not treated as normal hover targets by Stem.
-
-### Existing Outliner Tabs
-
-After initially enabling Stem, an already open World Outliner may occasionally need to be reopened or the editor restarted before all presentation changes appear.
-
-### Editor Only
-
-Stem contains no runtime module.
-
-Its visual changes exist only inside Unreal Editor.
-
----
-
-# Troubleshooting
-
-## Stem Does Not Appear in the World Outliner
-
-Check:
-
-**Edit > Plugins**
-
-Search for:
-
-```text
-Stem
-```
-
-Confirm that the plugin is enabled.
-
-Restart Unreal Editor if the plugin was just enabled.
-
-If an existing World Outliner was already open when Stem became active, close and reopen that Outliner tab.
-
----
-
-## Hierarchy Guides Are Missing
-
-Open:
-
-**Project Settings > Plugins > Stem**
-
-Make sure:
-
-**Show Hierarchy Guides**
-
-is enabled.
-
-Also make sure the hierarchy is expanded.
-
-Stem does not draw hidden portions of collapsed branches.
-
----
-
-## Selected Paths Do Not Highlight
-
-Check:
-
-**Project Settings > Plugins > Stem**
-
-and confirm:
-
-**Highlight Selected Paths**
-
-is enabled.
-
-Also make sure **Selected Path Brightness** is noticeably higher than **Guide Brightness**.
-
----
-
-## Hover Highlighting Does Not Appear
-
-Confirm:
-
-**Highlight Hovered Path**
-
-is enabled.
-
-Try increasing:
-
-**Hovered Path Brightness**
-
-if the difference from the normal guide brightness is too subtle.
-
----
-
-## The Guides Are Too Bright
-
-Reduce:
-
-**Guide Brightness**
-
-under:
-
-**Project Settings > Plugins > Stem**
-
-The default is intentionally subtle at:
-
-```text
-0.15
-```
-
----
-
-## The Guides Are Too Thick
-
-Reduce:
-
-**Guide Thickness**
-
-The supported range is:
-
-```text
-1.0 to 4.0
-```
-
-with a default of:
-
-```text
-2.0
-```
-
----
-
-## Changing Row Height Does Not Make Rows Smaller
-
-Stem will not reduce World Outliner rows below Unreal Engine's native minimum row height.
-
-Values beneath that minimum therefore produce no additional reduction.
-
----
-
-## A Filter Changed Which Guides I Can See
-
-Stem follows the hierarchy currently displayed by the World Outliner.
-
-Rows hidden by the active filter are not drawn until they are visible again.
-
-The underlying Actor or Folder hierarchy has not been changed.
-
----
-
-# Reporting Bugs
-
-If you encounter a problem, please open an issue:
-
-```text
-https://github.com/mippi-the-dork/Stem/issues
-```
-
-When reporting a bug, include:
-
-- Stem version
-- Unreal Engine version
-- Windows version
-- Whether Stem was installed from Fab, a GitHub Release, or source
-- Whether the issue affects guides, selection highlighting, hover highlighting, or row height
-- A description of the hierarchy involved
-- Steps to reproduce the problem
-- Screenshots or video when relevant
-- Any relevant Unreal Editor log output
-
-For visual issues, a screenshot of the affected World Outliner is especially helpful.
-
----
-
-# Feature Requests
-
-Suggestions and feature requests are welcome through GitHub Issues.
-
-When proposing a feature, describe the readability or hierarchy-navigation problem you're trying to solve rather than only the implementation you would like to see.
-
-That makes it easier to determine whether the feature belongs in Stem and whether there may be a simpler solution.
-
----
-
-# Contributions
-
-Pull requests are welcome.
-
-If you're considering a significant change, opening an Issue first is recommended so the intended behavior can be discussed before substantial work is done.
-
-Stem is intended to remain focused on World Outliner readability and hierarchy presentation.
-
----
-
-# License
-
-Stem is distributed under the **MIT License**.
-
-See [`LICENSE`](LICENSE) for details.
-
----
-
-# About
-
-Stem is an Unreal Engine editor utility created by **Mippi the Dork**.
-
-The plugin was built around a simple idea:
-
-> A hierarchy should be easy to follow, no matter how deep it grows.
-
-Stem makes the World Outliner's existing structure easier to read without changing the structure itself.
+[**Documentation**](https://mippi-the-dork.github.io/Stem/) · [**Releases**](https://github.com/mippi-the-dork/Stem/releases) · [**Report an Issue**](https://github.com/mippi-the-dork/Stem/issues) · [**Roadmap**](https://mippi-the-dork.github.io/Stem/?page=ROADMAP.md)
