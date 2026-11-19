@@ -311,3 +311,13 @@ code,kbd,pre,.baseline,.top-link,.source,.nav-label,.toc-inner>b,.kind-link{
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
 }
+/* Keep before/after row-height screenshots comparable and within the article. */
+.markdown figure.doc-media[data-media-id="row-height-comparison"]{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;
+}
+.markdown figure.doc-media[data-media-id="row-height-comparison"] img{width:100%;height:auto;align-self:start}
+.markdown figure.doc-media[data-media-id="row-height-comparison"] figcaption{grid-column:1/-1;margin-top:0}
+@media(max-width:560px){
+  .markdown figure.doc-media[data-media-id="row-height-comparison"]{grid-template-columns:minmax(0,1fr)}
+  .markdown figure.doc-media[data-media-id="row-height-comparison"] figcaption{grid-column:1}
+}
