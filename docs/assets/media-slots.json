@@ -1,0 +1,270 @@
+{
+  "plugin": "Stem",
+  "baseline": "v1.0.2",
+  "slots": [
+    {
+      "id": "category-01-getting-started",
+      "kind": "image",
+      "page": "01-getting-started/README.md",
+      "replacement_filename": "assets/media/category-01-getting-started.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "first-use-highlights",
+      "kind": "gif",
+      "page": "01-getting-started/first-use/DESIGN.md",
+      "replacement_filename": "assets/media/first-use-highlights.gif",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "first-use-render-pipeline",
+      "kind": "image",
+      "page": "01-getting-started/first-use/TECHNICAL.md",
+      "replacement_filename": "assets/media/first-use-render-pipeline.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "install-folder",
+      "kind": "image",
+      "page": "01-getting-started/install/DESIGN.md",
+      "replacement_filename": "assets/media/install-folder.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "getting-started-overview",
+      "kind": "image",
+      "page": "01-getting-started/overview/DESIGN.md",
+      "replacement_filename": "assets/media/getting-started-overview.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "architecture-at-a-glance",
+      "kind": "image",
+      "page": "01-getting-started/overview/TECHNICAL.md",
+      "replacement_filename": "assets/media/architecture-at-a-glance.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "category-02-hierarchy-guides",
+      "kind": "image",
+      "page": "02-hierarchy-guides/README.md",
+      "replacement_filename": "assets/media/category-02-hierarchy-guides.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "guides-core",
+      "kind": "image",
+      "page": "02-hierarchy-guides/core/DESIGN.md",
+      "replacement_filename": "assets/media/guides-core.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "guides-geometry",
+      "kind": "image",
+      "page": "02-hierarchy-guides/core/TECHNICAL.md",
+      "replacement_filename": "assets/media/guides-geometry.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "guides-expansion",
+      "kind": "gif",
+      "page": "02-hierarchy-guides/expansion/DESIGN.md",
+      "replacement_filename": "assets/media/guides-expansion.gif",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "guides-visible-scope",
+      "kind": "image",
+      "page": "02-hierarchy-guides/visible-tree/DESIGN.md",
+      "replacement_filename": "assets/media/guides-visible-scope.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "visible-tree-indices",
+      "kind": "image",
+      "page": "02-hierarchy-guides/visible-tree/TECHNICAL.md",
+      "replacement_filename": "assets/media/visible-tree-indices.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "combined-paths",
+      "kind": "gif",
+      "page": "03-path-highlighting/combined/DESIGN.md",
+      "replacement_filename": "assets/media/combined-paths.gif",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "combined-segment-aggregation",
+      "kind": "image",
+      "page": "03-path-highlighting/combined/TECHNICAL.md",
+      "replacement_filename": "assets/media/combined-segment-aggregation.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "hovered-path",
+      "kind": "gif",
+      "page": "03-path-highlighting/hovered/DESIGN.md",
+      "replacement_filename": "assets/media/hovered-path.gif",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "hovered-paint-merge",
+      "kind": "image",
+      "page": "03-path-highlighting/hovered/TECHNICAL.md",
+      "replacement_filename": "assets/media/hovered-paint-merge.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "selected-path",
+      "kind": "image",
+      "page": "03-path-highlighting/selected/DESIGN.md",
+      "replacement_filename": "assets/media/selected-path.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "selected-path-flow",
+      "kind": "image",
+      "page": "03-path-highlighting/selected/TECHNICAL.md",
+      "replacement_filename": "assets/media/selected-path-flow.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "project-settings-overview",
+      "kind": "image",
+      "page": "04-appearance-and-settings/configuration/DESIGN.md",
+      "replacement_filename": "assets/media/project-settings-overview.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "project-settings-flow",
+      "kind": "image",
+      "page": "04-appearance-and-settings/configuration/TECHNICAL.md",
+      "replacement_filename": "assets/media/project-settings-flow.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "guide-appearance-variants",
+      "kind": "image",
+      "page": "04-appearance-and-settings/guide-appearance/DESIGN.md",
+      "replacement_filename": "assets/media/guide-appearance-variants.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "guide-paint-geometry",
+      "kind": "image",
+      "page": "04-appearance-and-settings/guide-appearance/TECHNICAL.md",
+      "replacement_filename": "assets/media/guide-paint-geometry.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "highlight-settings-panel",
+      "kind": "image",
+      "page": "04-appearance-and-settings/highlighting-settings/DESIGN.md",
+      "replacement_filename": "assets/media/highlight-settings-panel.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "highlight-palette-merge",
+      "kind": "image",
+      "page": "04-appearance-and-settings/highlighting-settings/TECHNICAL.md",
+      "replacement_filename": "assets/media/highlight-palette-merge.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "row-height-comparison",
+      "kind": "image",
+      "page": "04-appearance-and-settings/row-height/DESIGN.md",
+      "replacement_filename": "assets/media/row-height-comparison.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "row-height-layout",
+      "kind": "image",
+      "page": "04-appearance-and-settings/row-height/TECHNICAL.md",
+      "replacement_filename": "assets/media/row-height-layout.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "editor-architecture",
+      "kind": "image",
+      "page": "05-integration-and-support/architecture/DESIGN.md",
+      "replacement_filename": "assets/media/editor-architecture.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "architecture-lifecycle",
+      "kind": "image",
+      "page": "05-integration-and-support/architecture/TECHNICAL.md",
+      "replacement_filename": "assets/media/architecture-lifecycle.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "compatibility-native-outliner",
+      "kind": "image",
+      "page": "05-integration-and-support/compatibility/DESIGN.md",
+      "replacement_filename": "assets/media/compatibility-native-outliner.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "troubleshoot-guides",
+      "kind": "image",
+      "page": "05-integration-and-support/troubleshooting/DESIGN.md",
+      "replacement_filename": "assets/media/troubleshoot-guides.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "troubleshoot-state-sequence",
+      "kind": "image",
+      "page": "05-integration-and-support/troubleshooting/TECHNICAL.md",
+      "replacement_filename": "assets/media/troubleshoot-state-sequence.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "support-installation",
+      "kind": "image",
+      "page": "05-integration-and-support/updating/DESIGN.md",
+      "replacement_filename": "assets/media/support-installation.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    },
+    {
+      "id": "roadmap-timeline",
+      "kind": "image",
+      "page": "ROADMAP.md",
+      "replacement_filename": "assets/media/roadmap-timeline.png",
+      "state": "Existing asset or placeholder; see the figure on the linked page",
+      "instructions": "Detailed visual capture instructions are shown directly beneath the figure caption on its documentation page."
+    }
+  ]
+}
