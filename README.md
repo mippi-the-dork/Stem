@@ -1,137 +1,136 @@
 # Stem
 
-### Make Unreal Engine's World Outliner easier to read.
+**World Outliner Hierarchy Guides for Unreal Engine**
 
-**Clear hierarchy guides. Instantly recognizable parent paths. More room to breathe.**
+**See how your level fits together, without fighting the Outliner.**
 
-As projects grow, the World Outliner fills with nested folders, attached Actors, and similarly named objects. Finding which parent a row belongs to—or tracing a selection back through several levels—can become a chore.
+Stem makes complex **World Outliner** hierarchies easier to read. Subtle connector lines reveal the relationships between folders and attached Actors, while selected and hovered path highlighting helps you trace a row back through its visible ancestors. Adjustable row spacing and guide appearance let you make the Outliner comfortable to work in, without replacing Unreal's native tools.
 
-**Stem makes those relationships visible at a glance.** It adds subtle connector lines, highlights the paths of selected and hovered rows, and gives you control over row spacing and guide appearance. Everything happens inside Unreal's existing World Outliner, without replacing your workflow or changing your level.
+[![Unreal Engine](https://img.shields.io/badge/Unreal%20Engine-5.8.x-black?logo=unrealengine)](https://www.unrealengine.com/) ![Platform](https://img.shields.io/badge/Platform-Win64-blue) ![Editor Only](https://img.shields.io/badge/Plugin-Editor%20Only-217346) ![Version](https://img.shields.io/badge/Stem-v1.0.2-blue) [![License: MIT](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-![Unreal Engine](https://img.shields.io/badge/Unreal%20Engine-5.8.x-black?logo=unrealengine)
-![Platform](https://img.shields.io/badge/Platform-Win64-blue)
-![Plugin Type](https://img.shields.io/badge/Plugin-Editor%20Only-green)
-![Version](https://img.shields.io/badge/Version-1.0.2-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
-
-![Stem hierarchy guides in Unreal Engine's World Outliner](Doc/Images/Stem-Hero.png)
+<p align="center">
+  <img src="Doc/Images/Stem-Hero.png" alt="Stem hierarchy connector guides in Unreal Engine's World Outliner" width="100%">
+</p>
 
 ---
 
-## 📖 Full Documentation
+## The World Outliner should be easier to follow
 
-**Want to install Stem, customize the guides, understand its behavior, or troubleshoot something?**
+In a large level, nested folders and attached Actors can create a wall of indentation. It's easy to lose track of which row belongs to which parent, especially when several branches are expanded or multiple Actors are selected.
 
-### **[Explore the Stem Documentation Website](https://mippi-the-dork.github.io/Stem/)**
+**Stem makes the hierarchy readable at a glance.**
 
-The dedicated documentation site includes step-by-step **Design guides**, detailed **Technical references**, illustrated workflows, settings explanations, limitations, and troubleshooting.
+- **Follow the structure.** Connector lines make parent-child relationships easier to trace through the currently displayed folders and Actor attachments.
+- **Find your selection.** Selected rows highlight their visible ancestor paths so you can see where they belong.
+- **Explore without changing selection.** Hover another row to preview its path while keeping your current selection.
+- **Read multiple paths together.** Shared ancestor segments stay consistently bright rather than stacking intensity for every selected Actor.
+- **Make space for your workflow.** Adjust row height, guide brightness, thickness and highlight intensity to suit your editor.
 
-| Start here | Learn more |
+<p align="center">
+  <img src="Doc/Images/Stem-Settings.png" alt="Stem settings for World Outliner hierarchy guides, row height and path highlights" width="860">
+</p>
+
+## Explore the documentation
+
+> ### [**Stem Documentation — Full User Guide and Technical Reference**](https://mippi-the-dork.github.io/Stem/)
+>
+> **Everything you need to learn and use Stem, in one place.** Learn what the hierarchy guides mean, follow selected and hovered paths, customize the Outliner's appearance, or explore technical implementation details and troubleshooting.
+>
+> **[Get Started](https://mippi-the-dork.github.io/Stem/?page=01-getting-started%2FREADME.md)** · **[Hierarchy Guides](https://mippi-the-dork.github.io/Stem/?page=02-hierarchy-guides%2FREADME.md)** · **[Path Highlighting](https://mippi-the-dork.github.io/Stem/?page=03-path-highlighting%2FREADME.md)** · **[Appearance & Settings](https://mippi-the-dork.github.io/Stem/?page=04-appearance-and-settings%2FREADME.md)**
+
+The README is a quick introduction to why Stem is useful. **The [documentation website](https://mippi-the-dork.github.io/Stem/) is the maintained reference for setup, exact behavior, settings, compatibility, and technical details.**
+
+## Clearer hierarchies. Same native Outliner.
+
+Stem focuses on the parts of the Outliner that help you understand where things belong.
+
+| Feature | What it gives you |
 | --- | --- |
-| [Installation & First Use](https://mippi-the-dork.github.io/Stem/?page=01-getting-started%2FREADME.md) | Get Stem running and see the guides in action. |
-| [Hierarchy Guides](https://mippi-the-dork.github.io/Stem/?page=02-hierarchy-guides%2FREADME.md) | Understand connector lines, nesting, and expansion. |
-| [Path Highlighting](https://mippi-the-dork.github.io/Stem/?page=03-path-highlighting%2FREADME.md) | Follow selections, hover over branches, and inspect shared paths. |
-| [Appearance & Settings](https://mippi-the-dork.github.io/Stem/?page=04-appearance-and-settings%2FREADME.md) | Customize row height, guide thickness, and highlight brightness. |
-| [Troubleshooting](https://mippi-the-dork.github.io/Stem/?page=05-integration-and-support%2Ftroubleshooting%2FDESIGN.md) | Find answers when the Outliner doesn't look as expected. |
-| [Technical Architecture](https://mippi-the-dork.github.io/Stem/?page=05-integration-and-support%2Farchitecture%2FTECHNICAL.md) | Explore the native Slate/SceneOutliner implementation. |
+| **[Hierarchy Guides](https://mippi-the-dork.github.io/Stem/?page=02-hierarchy-guides%2Fcore%2FDESIGN.md)** | Subtle vertical and horizontal connectors between displayed folders and attached Actors. |
+| **[Native Expansion](https://mippi-the-dork.github.io/Stem/?page=02-hierarchy-guides%2Fexpansion%2FDESIGN.md)** | Standard expand/collapse controls, with connectors following the currently visible tree. |
+| **[Selected Path Highlighting](https://mippi-the-dork.github.io/Stem/?page=03-path-highlighting%2Fselected%2FDESIGN.md)** | Brighter guides leading from selected rows through their displayed ancestors. |
+| **[Hovered Path Highlighting](https://mippi-the-dork.github.io/Stem/?page=03-path-highlighting%2Fhovered%2FDESIGN.md)** | A temporary path preview without changing what you've selected. |
+| **[Combined Paths](https://mippi-the-dork.github.io/Stem/?page=03-path-highlighting%2Fcombined%2FDESIGN.md)** | Multiple highlighted branches, with shared segments using the strongest relevant brightness rather than adding together. |
+| **[Row Height](https://mippi-the-dork.github.io/Stem/?page=04-appearance-and-settings%2Frow-height%2FDESIGN.md)** | More vertical space between rows without losing native Outliner labels or controls. |
+| **[Appearance Controls](https://mippi-the-dork.github.io/Stem/?page=04-appearance-and-settings%2Fguide-appearance%2FDESIGN.md)** | Configurable guide visibility, brightness, thickness, and independent selected/hovered highlighting. |
 
----
+All settings live under **Project Settings → Plugins → Stem**. Stem does not add a separate hierarchy editor or a visible extra Outliner column.
 
-## Why Stem?
+## Useful in real production workflows
 
-### See the structure, not just the indentation
+### Trace deeply nested Actors
 
-In a busy Outliner, whitespace alone isn't always enough to distinguish one branch from another. Stem draws **vertical and horizontal hierarchy guides** beside Unreal's native expansion arrows, helping you follow the parent-child relationships of folders and attached Actors.
+When a scene has several levels of folders and attachments, follow Stem's connectors to understand which visible branch an Actor belongs to. Expand or collapse as you normally would; the guides follow Unreal's displayed hierarchy.
 
-The guides adapt to the hierarchy currently displayed, and expanding or collapsing rows still works exactly as it does in Unreal.
+[**Understand the hierarchy guides →**](https://mippi-the-dork.github.io/Stem/?page=02-hierarchy-guides%2FREADME.md)
 
-**[Learn about hierarchy guides →](https://mippi-the-dork.github.io/Stem/?page=02-hierarchy-guides%2Fcore%2FDESIGN.md)**
+### Keep track of selections while exploring
 
-### Find your selected Actor's place in the tree
+Select a deeply nested Actor and see its highlighted path through visible ancestors. Hover other rows to preview their paths without changing selection. When you select several Actors, Stem displays their combined paths with consistent brightness on shared segments.
 
-Select a deeply nested Actor or Folder and Stem brightens the visible path leading back through its ancestors. Select multiple Actors and it shows their combined paths—without making shared segments unnaturally bright.
+<p align="center">
+  <img src="Doc/Images/Stem-Path-Highlighting.gif" alt="Stem highlighting selected and hovered ancestor paths in the World Outliner" width="800">
+</p>
 
-Hover over another row to preview that branch without losing your existing selection. When selected and hovered paths overlap, the stronger configured highlight wins.
+[**Explore selected, hovered and combined paths →**](https://mippi-the-dork.github.io/Stem/?page=03-path-highlighting%2FREADME.md)
 
-![Stem selected and hovered paths](Doc/Images/Stem-Path-Highlighting.gif)
+### Give dense scenes more breathing room
 
-*Selected and hovered paths make it easier to trace several branches through the same hierarchy.*
+Increase row height to make a crowded Outliner easier to scan. Adjust guide brightness and thickness separately so the hierarchy is visible without overwhelming the Actor labels.
 
-**[Explore path highlighting →](https://mippi-the-dork.github.io/Stem/?page=03-path-highlighting%2FREADME.md)**
+<p align="center">
+  <img src="Doc/Images/Stem-Row-Height-Default.png" alt="Standard World Outliner row spacing with Stem" width="390">
+  <img src="Doc/Images/Stem-Row-Height-Large.png" alt="Increased World Outliner row spacing with Stem" width="390">
+</p>
 
-### Make dense Outliners more comfortable
+Row Height adds space when requested, but does not shrink native rows below Unreal's minimum height.
 
-Not every hierarchy needs the same visual density. Stem lets you adjust **row height, guide brightness, guide thickness, selected-path brightness, and hovered-path brightness** in **Project Settings → Plugins → Stem**.
+[**Customize Stem's appearance →**](https://mippi-the-dork.github.io/Stem/?page=04-appearance-and-settings%2FREADME.md)
 
-Use subtle guides for everyday editing, or make paths more pronounced when you're navigating deeply nested scenes. Row Height can add spacing, but never reduces rows beneath Unreal's native minimum.
+## Get Stem
 
-| Default row spacing | Increased row spacing |
-| :---: | :---: |
-| ![Stem default row height](Doc/Images/Stem-Row-Height-Default.png) | ![Stem increased row height](Doc/Images/Stem-Row-Height-Large.png) |
+**Stem v1.0.2** targets **Unreal Engine 5.8.x on Windows 64-bit** and runs in the **Editor only**. The repository reports manual testing in **Unreal Engine 5.8.2**.
 
-*More vertical room improves readability while keeping the same native Outliner controls.*
+Install a compatible prebuilt release when available, use a supported Fab distribution if you have access to one, or build the full source from this repository. Once enabled, open a standard World Outliner and expand a hierarchy to see Stem's guides.
 
-**[Customize Stem's appearance →](https://mippi-the-dork.github.io/Stem/?page=04-appearance-and-settings%2FREADME.md)**
+**[Download GitHub Releases](https://github.com/mippi-the-dork/Stem/releases)** · **[Installation Guide](https://mippi-the-dork.github.io/Stem/?page=01-getting-started%2Finstall%2FDESIGN.md)** · **[First Use](https://mippi-the-dork.github.io/Stem/?page=01-getting-started%2Ffirst-use%2FDESIGN.md)**
 
-### Fits into the editor you already use
+## Important limitations
 
-Stem doesn't ask you to move to a separate hierarchy window. It keeps native labels, icons, expansion arrows, selection, sorting, and drag-and-drop behavior. There is **no extra visible Outliner column** to manage.
+Stem is an **editor presentation utility**, not a new hierarchy system or a level-editing tool.
 
-Stem is an **Editor-only presentation plugin**. Its hierarchy guides and highlighting don't alter Actor attachments, Folder membership, saved levels, or runtime gameplay.
+- **Displayed rows only.** Guides and highlights operate on the tree shown in the Outliner. Collapsed branches and filtered-out rows do not contribute visible segments.
+- **Standard World Outliner focus.** Specialized Outliners, custom expanders, and pinned ancestor duplicates may not receive normal guide or hover behavior.
+- **No hierarchy edits.** Stem does not create, rename, move, attach, detach, or reparent Actors or Folders, or modify level packages.
+- **Native behavior stays native.** Stem preserves Unreal's normal selection, expansion, sorting, labels, and drag-and-drop rather than replacing them.
+- **Row height has a floor.** It cannot force rows below Unreal's native minimum height.
+- **No packaged-game runtime.** There is no Stem gameplay module, Actor, or runtime hierarchy component.
+- **Existing tabs may need refreshing.** If Stem is enabled after an Outliner tab is already open, reopen that tab or restart the editor to see guides.
 
----
+For details, see [Compatibility and Limitations](https://mippi-the-dork.github.io/Stem/?page=05-integration-and-support%2Fcompatibility%2FDESIGN.md) and [Troubleshooting](https://mippi-the-dork.github.io/Stem/?page=05-integration-and-support%2Ftroubleshooting%2FDESIGN.md).
 
-## Getting Started
+## What's next?
 
-Stem v1.0.2 targets **Unreal Engine 5.8.x on Windows 64-bit**. The repository records manual testing in Unreal Engine **5.8.2**.
+Stem v1.0.2 already provides hierarchy guides, path highlighting, and appearance controls. Potential future areas to evaluate include compatibility with more Outliner layouts, accessibility and visibility improvements, and editor performance testing on larger displayed trees.
 
-You can install an available compatible release through [GitHub Releases](https://github.com/mippi-the-dork/Stem/releases), use a supported Fab distribution when available, or build the [source](https://github.com/mippi-the-dork/Stem) for your editor.
+These are **areas to investigate, not announced features or a committed release schedule**.
 
-Once enabled, open a standard World Outliner and expand a nested hierarchy. The guides appear automatically when enabled in Stem's Project Settings.
+[**View the Stem Roadmap →**](https://mippi-the-dork.github.io/Stem/?page=ROADMAP.md)
 
-**[Read the complete installation guide](https://mippi-the-dork.github.io/Stem/?page=01-getting-started%2Finstall%2FDESIGN.md)**
+## Issues, feature requests and contributions
 
----
+Found a problem? Please [open an issue](https://github.com/mippi-the-dork/Stem/issues) with your Stem and Unreal Engine versions, installation method, affected Outliner type, steps to reproduce, and a screenshot, video, or Output Log excerpt when useful.
 
-## What Stem Does Not Do
+Have an idea? [Submit a feature request](https://github.com/mippi-the-dork/Stem/issues) describing the hierarchy-readability problem you want solved and the outcome you'd like to achieve.
 
-Stem is deliberately focused on **World Outliner readability**, not managing or modifying the hierarchy itself.
-
-- It does **not** create, move, rename, attach, or reparent Actors or Folders.
-- It does **not** modify level packages or introduce runtime gameplay systems.
-- It does **not** replace the World Outliner or add a visible control column.
-- It does **not** draw branches that are collapsed or filtered out of the currently displayed Outliner.
-- It does **not** guarantee decoration of specialized third-party Outliners, custom expansion widgets, or pinned ancestor duplicates.
-- It does **not** guarantee support outside the documented Unreal Engine and platform versions.
-
-If you enable Stem after an Outliner tab is already open, you may need to reopen that tab or restart Unreal Editor to see every guide.
-
-**[Read compatibility and limitations](https://mippi-the-dork.github.io/Stem/?page=05-integration-and-support%2Fcompatibility%2FDESIGN.md)**
-
----
-
-## Reporting Issues and Requesting Features
-
-Found a bug or have an idea that would make complex hierarchies easier to navigate? Use [GitHub Issues](https://github.com/mippi-the-dork/Stem/issues).
-
-For a bug report, please include the **Stem and Unreal Engine versions**, installation method, what you expected versus what happened, steps to reproduce, and an Outliner screenshot or short recording when useful. Include relevant Output Log entries for technical problems.
-
-For a **feature request**, start with the problem you're trying to solve. That helps keep Stem focused on practical readability improvements instead of adding controls for their own sake.
-
-**[Open an issue or feature request](https://github.com/mippi-the-dork/Stem/issues/new)** · **[Troubleshooting guide](https://mippi-the-dork.github.io/Stem/?page=05-integration-and-support%2Ftroubleshooting%2FDESIGN.md)**
-
-## Contributions
-
-Contributions and pull requests are welcome. For substantial changes, [open an issue](https://github.com/mippi-the-dork/Stem/issues) first to discuss the intended behavior and how it fits Stem's purpose.
-
-Please preserve native World Outliner interactions, avoid modifying Actors or level data, and keep changes compatible with Stem's Editor-only scope. Relevant documentation should be updated alongside behavior changes.
+**Pull requests are welcome.** For larger changes, open an issue first so the intended scope can be discussed. Stem aims to remain lightweight and compatible with Unreal's existing Outliner workflow.
 
 ## License
 
-Stem is distributed under the **MIT License**. See [LICENSE](LICENSE).
+Stem is distributed under the **MIT License**. See [LICENSE](LICENSE) for the full terms.
 
 ---
 
-**Stem — a clearer view of the hierarchy you already have.**
+**Stem is created by Mippi the Dork.**
 
-[**Documentation**](https://mippi-the-dork.github.io/Stem/) · [**Releases**](https://github.com/mippi-the-dork/Stem/releases) · [**Report an Issue**](https://github.com/mippi-the-dork/Stem/issues) · [**Roadmap**](https://mippi-the-dork.github.io/Stem/?page=ROADMAP.md)
+**[Explore the Documentation](https://mippi-the-dork.github.io/Stem/)** · **[Get Stem](https://github.com/mippi-the-dork/Stem/releases)** · **[Report an Issue](https://github.com/mippi-the-dork/Stem/issues)**
